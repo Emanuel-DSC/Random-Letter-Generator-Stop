@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stop/circle_button.dart';
+import 'package:stop/colors.dart';
+import 'package:stop/screens/topics.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -14,34 +17,11 @@ class _MyHomePageState extends State<MyHomePage> {
   String supportLetter = '';
   List supportList = [];
   List list = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'x',
-    'w',
-    'y',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y',
     'z'
   ];
-  void _incrementCounter() {
+
+  void _shuffle() {
     setState(() {
       supportLetter = (list..shuffle()).first;
       supportList.add(supportLetter);
@@ -53,32 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
         supportLetter = '';
         supportList = [];
         list = [
-          'a',
-          'b',
-          'c',
-          'd',
-          'e',
-          'f',
-          'g',
-          'h',
-          'i',
-          'j',
-          'k',
-          'l',
-          'm',
-          'n',
-          'o',
-          'p',
-          'q',
-          'r',
-          's',
-          't',
-          'u',
-          'v',
-          'x',
-          'w',
-          'y',
-          'z'
+          'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z'
         ];
       }
     });
@@ -90,32 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       supportLetter = '';
       supportList = [];
       list = [
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f',
-        'g',
-        'h',
-        'i',
-        'j',
-        'k',
-        'l',
-        'm',
-        'n',
-        'o',
-        'p',
-        'q',
-        'r',
-        's',
-        't',
-        'u',
-        'v',
-        'x',
-        'w',
-        'y',
-        'z'
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z'
       ];
     });
   }
@@ -123,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBgColor,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -136,33 +67,52 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Letters used:',
               ),
               Text(
-                supportList.toString(),
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
-              Text(
-                letter.toUpperCase(),
-                style: GoogleFonts.anton(
-                  fontSize: 64,
+                supportList.toString().toUpperCase(),
+                style: GoogleFonts.lato(
+                  fontSize: 22,
+                  color: kLetterColor,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+              Text(
+                letter.toUpperCase(),
+                style: GoogleFonts.lato(
+                  fontSize: 64,
+                  color: kLetterColor,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Circle_Button(reset, kButtonColor, 'te'),
+                  const SizedBox(width: 10),
+                  Circle_Button(reset, kButtonColor, 'dsa'),
+                ],
+              ),
+              const SizedBox(height: 15),
               GestureDetector(
-                  onTap: () {
-                    reset();
-                  },
-                  child: Container(
-                    padding:  const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                    color: Colors.red,
-                    child:  
-                       Text("Reset", style: TextStyle(color: Colors.white)),
-                  )),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Topics()),
+                ),
+                child: Container(
+                  height: 65,
+                  width: 160,
+                  decoration: BoxDecoration(
+                    color: kButtonColor,
+                     borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: _shuffle,
         child: const Icon(Icons.add),
       ),
     );
