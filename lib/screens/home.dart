@@ -1,5 +1,7 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/widgets/circle_button.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
@@ -15,6 +17,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final CountDownController _controller = CountDownController();
   String letter = '';
   String supportLetter = '';
   List supportList = [];
@@ -53,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       supportList.add(supportLetter);
       letter = supportLetter;
       list.remove(supportLetter);
+      _controller.start();
 
       if (list.isEmpty) {
         showDialog(
@@ -99,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void reset() {
     setState(() {
+      _controller.reset();
       letter = '';
       supportLetter = '';
       supportList = [];
@@ -156,6 +161,24 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.2),
               LatoText(size: 64, text: letter.toUpperCase()),
               const SizedBox(height: 50),
+              CircularCountDownTimer(
+                  autoStart: false,
+                  isReverse: true,
+                  controller: _controller,
+                  width: 100,
+                  height: 100,
+                  duration: 30,
+                  fillGradient: LinearGradient(colors: 
+                  [Colors.red.shade700, Colors.white, Colors.white]),
+                  fillColor: Colors.black, 
+                  ringColor: kButtonColor,
+                  strokeWidth: 2.5,
+                  textStyle: 	GoogleFonts.lato(
+                  fontSize: 24,
+                  color: kLetterColor,
+                  fontWeight: FontWeight.w700),
+                  textFormat: CountdownTextFormat.MM_SS,
+                  ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
