@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:stop/circle_button.dart';
+import 'package:stop/widgets/circle_button.dart';
 import 'package:stop/constants.dart';
-import 'package:stop/lato_text.dart';
-import 'package:stop/my_alert_dialog.dart';
-import 'package:stop/topics_button.dart';
+import 'package:stop/widgets/lato_text.dart';
+import 'package:stop/widgets/my_alert_dialog.dart';
+import 'package:stop/widgets/categories_button.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -55,13 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
       list.remove(supportLetter);
 
       if (list.isEmpty) {
-
-      showDialog(
-      context: context,
-      builder: (context) {
-        return MyAlertDialog(onTap: () => Navigator.of(context).pop());
-      },
-    );
+        showDialog(
+          context: context,
+          builder: (context) {
+            return MyAlertDialog(onTap: () => Navigator.of(context).pop());
+          },
+        );
 
         letter = '';
         supportLetter = '';
@@ -151,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
               LatoText(size: 28, text: kUsedLettersText),
               const SizedBox(height: 12),
               Visibility(
-                visible: supportList.isEmpty ? false : true,
+                  visible: supportList.isEmpty ? false : true,
                   child: LatoText(
                       size: 22, text: supportList.toString().toUpperCase())),
               SizedBox(height: MediaQuery.of(context).size.height * 0.2),
@@ -167,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               const SizedBox(height: 15),
-              TopicsButton(context),
+              CategoriesButton(context),
             ],
           ),
         ),
