@@ -1,16 +1,14 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/widgets/circle_button.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
 import 'package:stop/widgets/my_alert_dialog.dart';
-import 'package:stop/widgets/categories_button.dart';
+import 'package:stop/widgets/my_timer.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -142,10 +140,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBgColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Center(
@@ -158,27 +152,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   visible: supportList.isEmpty ? false : true,
                   child: LatoText(
                       size: 22, text: supportList.toString().toUpperCase())),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-              LatoText(size: 64, text: letter.toUpperCase()),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+              LatoText(size: 92, text: letter.toUpperCase()),
               const SizedBox(height: 50),
-              CircularCountDownTimer(
-                  autoStart: false,
-                  isReverse: true,
-                  controller: _controller,
-                  width: 100,
-                  height: 100,
-                  duration: 30,
-                  fillGradient: LinearGradient(colors: 
-                  [Colors.red.shade700, Colors.white, Colors.white]),
-                  fillColor: Colors.black, 
-                  ringColor: kButtonColor,
-                  strokeWidth: 2.5,
-                  textStyle: 	GoogleFonts.lato(
-                  fontSize: 24,
-                  color: kLetterColor,
-                  fontWeight: FontWeight.w700),
-                  textFormat: CountdownTextFormat.MM_SS,
-                  ),
+              MyTimer(controller: _controller),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -189,7 +167,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               const SizedBox(height: 15),
-              CategoriesButton(context),
             ],
           ),
         ),
@@ -197,3 +174,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

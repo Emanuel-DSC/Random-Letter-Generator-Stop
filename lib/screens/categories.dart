@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/list_card.dart';
 
@@ -10,17 +9,6 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBgColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(kCategoriesButtonText),
-        leading: IconButton(
-          icon: const Icon(FontAwesomeIcons.angleLeft),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: ListView(

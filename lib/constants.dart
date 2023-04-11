@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
+//colors 
 Color kBgColor = const Color(0xFF1E1E1E);
 Color kButtonColor = const Color(0xFF52515C);
 Color kLetterColor = const Color.fromARGB(255, 187, 187, 187);
 Color kResetColor = const Color(0xFF721B54);
 Color kAlertDialogColor = const Color(0xFF371f33);
+Color kDrawerColor = const Color.fromARGB(255, 32, 29, 36);
+Color kCategoriesTileColor = const Color(0xFF5a3b58);
 
+// dialog alert
 String kUsedLettersText = 'Used letters: ';
 String kAlertDialogTitle = 'Whoah!';
 String kAlertDialogText =
     'You used every letter of the alphabet. I hope you had a good game';
 
-String kCategoriesButtonText = 'Categories';
-
+//categories
 String kCategoriesText1 = 'Men';
 String kCategoriesText2 = 'women';
 String kCategoriesText3 = 'brand';
@@ -30,3 +33,9 @@ String kCategoriesText14 = "singer / band";
 String kCategoriesText15 = "flower";
 String kCategoriesText16 = "character";
 String kCategoriesText17 = "adjective";
+
+// drawer 
+String kDrawerHomeText = "Home";
+String kDrawerCategoriesText = "Categories";
+String kDrawerTimerText = "Timer Settings";
+

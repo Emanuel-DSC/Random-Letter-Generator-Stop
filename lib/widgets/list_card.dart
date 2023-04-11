@@ -15,7 +15,7 @@ class ListCard extends StatelessWidget {
         height: 80,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: kAlertDialogColor,
+          color: kCategoriesTileColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(child: LatoText(size: 28, text: text.toUpperCase())),
