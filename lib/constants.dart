@@ -5,3 +5,4 @@ Color kButtonColor = const Color(0xFF52515C);
 Color kLetterColor = const Color.fromARGB(255, 187, 187, 187);
 Color kResetColor = const Color(0xFF721B54);
 
+String kUsedLettersText = 'Used letters: ';

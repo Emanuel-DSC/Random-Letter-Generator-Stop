@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: non_constant_identifier_names
 
-GestureDetector Circle_Button(onTap, color, text) {
+import 'package:flutter/material.dart';
+import 'package:stop/constants.dart';
+
+GestureDetector Circle_Button(onTap, color, icon) {
   return GestureDetector(
       onTap: () {
         onTap();
@@ -9,6 +12,6 @@ GestureDetector Circle_Button(onTap, color, text) {
         padding: const EdgeInsets.all(30),
         decoration:
             BoxDecoration(color: color, shape: BoxShape.circle),
-        child: Text(text, style: const TextStyle(color: Colors.white)),
+        child: Icon(icon, color: kLetterColor,),
       ));
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/circle_button.dart';
-import 'package:stop/colors.dart';
+import 'package:stop/constants.dart';
+import 'package:stop/lato_text.dart';
 import 'package:stop/screens/topics.dart';
+import 'package:stop/topics_button.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -21,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'z'
   ];
 
-  void _shuffle() {
+  void shuffle() {
     setState(() {
       supportLetter = (list..shuffle()).first;
       supportList.add(supportLetter);
@@ -55,66 +58,36 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: kBgColor,
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const Text(
-                'Letters used:',
-              ),
-              Text(
-                supportList.toString().toUpperCase(),
-                style: GoogleFonts.lato(
-                  fontSize: 22,
-                  color: kLetterColor,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              LatoText(size: 28, text: kUsedLettersText),
+              const SizedBox(height: 12),
+               LatoText(size: 22, text: supportList.toString().toUpperCase()),
               SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-              Text(
-                letter.toUpperCase(),
-                style: GoogleFonts.lato(
-                  fontSize: 64,
-                  color: kLetterColor,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+               LatoText(size: 64, text: letter.toUpperCase()),
               const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Circle_Button(reset, kButtonColor, 'te'),
+                  Circle_Button(shuffle, kButtonColor, FontAwesomeIcons.shuffle),
                   const SizedBox(width: 10),
-                  Circle_Button(reset, kButtonColor, 'dsa'),
+                  Circle_Button(reset, kResetColor,  FontAwesomeIcons.eraser),
                 ],
               ),
               const SizedBox(height: 15),
-              GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Topics()),
-                ),
-                child: Container(
-                  height: 65,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: kButtonColor,
-                     borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
+              TopicsButton(context),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _shuffle,
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
+
