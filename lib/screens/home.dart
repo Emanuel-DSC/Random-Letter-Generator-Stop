@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/circle_button.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/lato_text.dart';
-import 'package:stop/screens/topics.dart';
+import 'package:stop/my_alert_dialog.dart';
 import 'package:stop/topics_button.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -20,7 +19,31 @@ class _MyHomePageState extends State<MyHomePage> {
   String supportLetter = '';
   List supportList = [];
   List list = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y',
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'x',
+    'w',
+    'y',
     'z'
   ];
 
@@ -32,11 +55,44 @@ class _MyHomePageState extends State<MyHomePage> {
       list.remove(supportLetter);
 
       if (list.isEmpty) {
+
+      showDialog(
+      context: context,
+      builder: (context) {
+        return MyAlertDialog(onTap: () => Navigator.of(context).pop());
+      },
+    );
+
         letter = '';
         supportLetter = '';
         supportList = [];
         list = [
-          'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z'
+          'a',
+          'b',
+          'c',
+          'd',
+          'e',
+          'f',
+          'g',
+          'h',
+          'i',
+          'j',
+          'k',
+          'l',
+          'm',
+          'n',
+          'o',
+          'p',
+          'q',
+          'r',
+          's',
+          't',
+          'u',
+          'v',
+          'x',
+          'w',
+          'y',
+          'z'
         ];
       }
     });
@@ -48,7 +104,32 @@ class _MyHomePageState extends State<MyHomePage> {
       supportLetter = '';
       supportList = [];
       list = [
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z'
+        'a',
+        'b',
+        'c',
+        'd',
+        'e',
+        'f',
+        'g',
+        'h',
+        'i',
+        'j',
+        'k',
+        'l',
+        'm',
+        'n',
+        'o',
+        'p',
+        'q',
+        'r',
+        's',
+        't',
+        'u',
+        'v',
+        'x',
+        'w',
+        'y',
+        'z'
       ];
     });
   }
@@ -69,16 +150,20 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               LatoText(size: 28, text: kUsedLettersText),
               const SizedBox(height: 12),
-               LatoText(size: 22, text: supportList.toString().toUpperCase()),
+              Visibility(
+                visible: supportList.isEmpty ? false : true,
+                  child: LatoText(
+                      size: 22, text: supportList.toString().toUpperCase())),
               SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-               LatoText(size: 64, text: letter.toUpperCase()),
+              LatoText(size: 64, text: letter.toUpperCase()),
               const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Circle_Button(shuffle, kButtonColor, FontAwesomeIcons.shuffle),
+                  Circle_Button(
+                      shuffle, kButtonColor, FontAwesomeIcons.shuffle),
                   const SizedBox(width: 10),
-                  Circle_Button(reset, kResetColor,  FontAwesomeIcons.eraser),
+                  Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
                 ],
               ),
               const SizedBox(height: 15),
@@ -90,4 +175,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
