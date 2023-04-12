@@ -41,6 +41,7 @@ dependencies:
   circular_countdown_timer: ^0.2.2
   hidden_drawer_menu: ^3.0.1
   flutter_ringtone_player: ^3.2.0
+  numberpicker: ^2.1.2
 
 dev_dependencies:
   flutter_test:

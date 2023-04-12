@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 //colors 
 Color kBgColor = const Color(0xFF1E1E1E);
@@ -37,5 +38,23 @@ String kCategoriesText17 = "adjective";
 // drawer 
 String kDrawerHomeText = "Home";
 String kDrawerCategoriesText = "Categories";
-String kDrawerTimerText = "Timer Settings";
+String kDrawerTimerText = "Timer";
 
+//timer 
+String kTimerText = "choose the countdown time";
+String kTimerText2 = "(seconds)";
+
+
+// Main text style
+final myTextStyle = GoogleFonts.lato(
+        fontSize: 22,
+        color: kLetterColor,
+        fontWeight: FontWeight.w500,
+      ); 
+
+// accent text style
+  final mySelectedTextStyle = GoogleFonts.lato(
+        fontSize: 22,
+        color: kResetColor,
+        fontWeight: FontWeight.w500,
+      ); 

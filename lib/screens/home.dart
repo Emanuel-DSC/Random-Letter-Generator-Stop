@@ -143,31 +143,34 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              LatoText(size: 28, text: kUsedLettersText),
-              const SizedBox(height: 12),
-              Visibility(
-                  visible: supportList.isEmpty ? false : true,
-                  child: LatoText(
-                      size: 22, text: supportList.toString().toUpperCase())),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
-              LatoText(size: 92, text: letter.toUpperCase()),
-              const SizedBox(height: 50),
-              MyTimer(controller: _controller),
-              const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Circle_Button(
-                      shuffle, kButtonColor, FontAwesomeIcons.shuffle),
-                  const SizedBox(width: 10),
-                  Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
-                ],
-              ),
-              const SizedBox(height: 15),
-            ],
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                LatoText(size: 28, text: kUsedLettersText),
+                const SizedBox(height: 12),
+                Visibility(
+                    visible: supportList.isEmpty ? false : true,
+                    child: LatoText(
+                        size: 22, text: supportList.toString().toUpperCase())),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                LatoText(size: 92, text: letter.toUpperCase()),
+                const SizedBox(height: 50),
+                MyTimer(controller: _controller),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Circle_Button(
+                        shuffle, kButtonColor, FontAwesomeIcons.shuffle),
+                    const SizedBox(width: 10),
+                    Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
+                  ],
+                ),
+                const SizedBox(height: 15),
+              ],
+            ),
           ),
         ),
       ),

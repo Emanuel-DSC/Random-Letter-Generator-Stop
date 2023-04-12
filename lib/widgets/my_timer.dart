@@ -3,6 +3,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/constants.dart';
+import 'package:stop/screens/timer_settings.dart';
 
 class MyTimer extends StatelessWidget {
   const MyTimer({
@@ -21,7 +22,7 @@ class MyTimer extends StatelessWidget {
       controller: _controller,
       width: 100,
       height: 100,
-      duration: 30,
+      duration: TimerSettingsState.currentHorizontalIntValue,
       fillGradient: LinearGradient(
           colors: [Colors.red.shade700, Colors.white, Colors.white]),
       fillColor: Colors.black,

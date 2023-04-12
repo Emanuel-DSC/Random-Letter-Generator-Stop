@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/screens/categories.dart';
@@ -15,12 +14,6 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   List<ScreenHiddenDrawer> _pages = [];
-
-  final myTextStyle = GoogleFonts.lato(
-        fontSize: 22,
-        color: kLetterColor,
-        fontWeight: FontWeight.w500,
-      );  
 
   @override
   void initState() {
