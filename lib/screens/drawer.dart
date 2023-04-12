@@ -32,17 +32,17 @@ class _SideDrawerState extends State<SideDrawer> {
         ItemHiddenMenu(
         colorLineSelected: kResetColor,
         baseStyle: myTextStyle,
-        name: kDrawerCategoriesText, 
+        name: kDrawerTimerText, 
         selectedStyle: myTextStyle), 
-        const Categories()),
+        const TimerSettings()),
 
       ScreenHiddenDrawer(
         ItemHiddenMenu(
         colorLineSelected: kResetColor,
         baseStyle: myTextStyle,
-        name: kDrawerTimerText, 
+        name: kDrawerCategoriesText, 
         selectedStyle: myTextStyle), 
-        const TimerSettings()),
+        const Categories()),
     ];
   }
 
