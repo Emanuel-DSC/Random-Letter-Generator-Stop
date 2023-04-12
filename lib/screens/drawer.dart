@@ -3,7 +3,7 @@ import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/screens/categories.dart';
 import 'package:stop/screens/home.dart';
-import 'package:stop/screens/timer_settings.dart';
+import 'package:stop/screens/timer.dart';
 
 class SideDrawer extends StatefulWidget {
   const SideDrawer({Key? key}) : super(key: key);

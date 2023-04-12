@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/screens/home.dart';
-import 'package:stop/screens/timer_settings.dart';
+import 'package:stop/screens/timer.dart';
 
 class MyTimer extends StatelessWidget {
   const MyTimer({
@@ -14,6 +14,7 @@ class MyTimer extends StatelessWidget {
         super(key: key);
 
   final CountDownController _controller;
+  static double vol = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +36,9 @@ class MyTimer extends StatelessWidget {
       onComplete: () {
         if (MyHomePage.reset == true) {
           MyHomePage.reset = false;
-        }
-        else{
-          FlutterRingtonePlayer.play(fromAsset: "assets/alarm.wav");
+        } else {
+          FlutterRingtonePlayer.play(
+              fromAsset: "assets/alarm.wav", volume: MyTimer.vol);
         }
       },
     );

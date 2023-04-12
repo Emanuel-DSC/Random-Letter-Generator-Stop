@@ -1,7 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:stop/screens/timer_settings.dart';
 import 'package:stop/widgets/circle_button.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
@@ -58,10 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
       letter = supportLetter;
       list.remove(supportLetter);
       _controller.start();
-
-      if (TimerSettingsState.currentHorizontalIntValue == 0) {
-        MyHomePage.reset = true;
-      }
 
       if (list.isEmpty) {
         showDialog(
