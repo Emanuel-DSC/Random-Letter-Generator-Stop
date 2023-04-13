@@ -54,10 +54,10 @@ class TimerSettingsState extends State<TimerSettings> {
               setState(() {
                 isSwitched = value;
                 if (isSwitched == false) {
-                  MyTimer.vol = 0;
+                  MyTimer.vol = 1;
                 }
                 else {
-                  MyTimer.vol = 1;
+                  MyTimer.vol = 0;
                 }              
               });
             },

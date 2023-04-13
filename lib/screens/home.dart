@@ -1,6 +1,7 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:stop/widgets/animated_raffle.dart';
 import 'package:stop/widgets/circle_button.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
@@ -51,13 +52,20 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   void shuffle() {
-    setState(() {
+     setState(() {
       supportLetter = (list..shuffle()).first;
       supportList.add(supportLetter);
       letter = supportLetter;
       list.remove(supportLetter);
       _controller.start();
 
+      Navigator.push(
+  context,
+  PageRouteBuilder(
+    pageBuilder: (_, __, ___) => Raffle(),
+    transitionDuration: const Duration(seconds: 0),
+  ),
+);
       if (list.isEmpty) {
         showDialog(
           context: context,
