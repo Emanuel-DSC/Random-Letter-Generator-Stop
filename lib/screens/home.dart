@@ -51,21 +51,24 @@ class _MyHomePageState extends State<MyHomePage> {
     'z'
   ];
 
+  @override
+  void initState() {
+    super.initState();
+
+    //if raffled, then starts automatically the countdown
+    if(Raffle.isRaffled == true){
+      WidgetsBinding.instance.addPostFrameCallback((_) => shuffle());
+    } 
+  }
+
   void shuffle() {
-     setState(() {
+    setState(() {
       supportLetter = (list..shuffle()).first;
       supportList.add(supportLetter);
       letter = supportLetter;
       list.remove(supportLetter);
       _controller.start();
 
-      Navigator.push(
-  context,
-  PageRouteBuilder(
-    pageBuilder: (_, __, ___) => Raffle(),
-    transitionDuration: const Duration(seconds: 0),
-  ),
-);
       if (list.isEmpty) {
         showDialog(
           context: context,
@@ -147,6 +150,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void startRaffle() {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (_, __, ___) => const Raffle(),
+        transitionDuration: const Duration(seconds: 0),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,8 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Circle_Button(
-                        shuffle, kButtonColor, FontAwesomeIcons.shuffle),
+                    Circle_Button(startRaffle, kButtonColor, FontAwesomeIcons.shuffle),
                     const SizedBox(width: 10),
                     Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
                   ],

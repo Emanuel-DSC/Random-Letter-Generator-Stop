@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:stop/screens/drawer.dart';
-import 'package:stop/widgets/animated_raffle.dart';
 
 void main() {
   runApp(const MyApp());

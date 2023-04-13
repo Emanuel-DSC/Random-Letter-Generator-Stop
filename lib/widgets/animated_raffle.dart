@@ -1,8 +1,7 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:stop/screens/home.dart';
+import 'package:stop/screens/drawer.dart';
 import 'package:stop/widgets/lato_text.dart';
 
 class Raffle extends StatelessWidget {
@@ -15,7 +14,7 @@ class Raffle extends StatelessWidget {
     int duration = 200;
 
     return Scaffold(
-      body: Center(
+      body: (Center(
           child: const LatoText(size: 64, text: 'A').animate().swap(
               duration: duration.ms,
               builder: (_, __) => const LatoText(size: 64, text: 'B')
@@ -30,19 +29,20 @@ class Raffle extends StatelessWidget {
                                   const LatoText(size: 64, text: 'D').animate(
                                     delay: duration.ms,
                                     onComplete: (controller) {
+                                      isRaffled = true;
                                       Navigator.pushReplacement(
                                         context,
                                         PageRouteBuilder(
-                                          pageBuilder: (context, animation1,
-                                                  animation2) =>
-                                              const MyHomePage(),
+                                          pageBuilder:
+                                              (context, animation1, animation2) =>
+                                                  const SideDrawer(),
                                           transitionDuration: Duration.zero,
-                                          reverseTransitionDuration:Duration.zero,
+                                          reverseTransitionDuration:
+                                              Duration.zero,
                                         ),
                                       );
-                                      
                                     },
-                                  ))))),
+                                  )))))),
     );
   }
 }
