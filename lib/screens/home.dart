@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,6 +14,7 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   static bool reset = false;
+  static bool playAnimation = false;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -51,18 +54,19 @@ class _MyHomePageState extends State<MyHomePage> {
     'z'
   ];
 
-  @override
-  void initState() {
-    super.initState();
+  // @override
+  // // void initState() {
+  // //   super.initState();
 
-    //if raffled, then starts automatically the countdown
-    if(Raffle.isRaffled == true){
-      WidgetsBinding.instance.addPostFrameCallback((_) => shuffle());
-    } 
-  }
+  // //   //if raffled, then starts automatically the countdown
+  // //   if(Raffle.isRaffled == true){
+  // //     WidgetsBinding.instance.addPostFrameCallback((_) => shuffle());
+  // //   }
+  // // }
 
   void shuffle() {
     setState(() {
+      MyHomePage.playAnimation = true;
       supportLetter = (list..shuffle()).first;
       supportList.add(supportLetter);
       letter = supportLetter;
@@ -150,15 +154,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void startRaffle() {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (_, __, ___) => const Raffle(),
-        transitionDuration: const Duration(seconds: 0),
-      ),
-    );
-  }
+  // void startRaffle() {
+  //   Navigator.push(
+  //     context,
+  //     PageRouteBuilder(
+  //       pageBuilder: (_, __, ___) => const Raffle(),
+  //       transitionDuration: const Duration(seconds: 0),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -172,6 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                Raffle(isVisible: MyHomePage.playAnimation),
                 LatoText(size: 28, text: kUsedLettersText),
                 const SizedBox(height: 12),
                 Visibility(
@@ -186,7 +191,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Circle_Button(startRaffle, kButtonColor, FontAwesomeIcons.shuffle),
+                    Circle_Button(
+                        shuffle, kButtonColor, FontAwesomeIcons.shuffle),
                     const SizedBox(width: 10),
                     Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
                   ],
