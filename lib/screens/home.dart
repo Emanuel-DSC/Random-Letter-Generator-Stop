@@ -54,17 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'z'
   ];
 
-  // @override
-  // // void initState() {
-  // //   super.initState();
-
-  // //   //if raffled, then starts automatically the countdown
-  // //   if(Raffle.isRaffled == true){
-  // //     WidgetsBinding.instance.addPostFrameCallback((_) => shuffle());
-  // //   }
-  // // }
-
-  void shuffle() {
+  void shuffle() async {
     setState(() {
       MyHomePage.playAnimation = true;
       supportLetter = (list..shuffle()).first;
@@ -80,46 +70,16 @@ class _MyHomePageState extends State<MyHomePage> {
             return MyAlertDialog(onTap: () => Navigator.of(context).pop());
           },
         );
-
-        letter = '';
-        supportLetter = '';
-        supportList = [];
-        list = [
-          'a',
-          'b',
-          'c',
-          'd',
-          'e',
-          'f',
-          'g',
-          'h',
-          'i',
-          'j',
-          'k',
-          'l',
-          'm',
-          'n',
-          'o',
-          'p',
-          'q',
-          'r',
-          's',
-          't',
-          'u',
-          'v',
-          'x',
-          'w',
-          'y',
-          'z'
-        ];
+        reset();
       }
     });
   }
 
   void reset() {
+    MyHomePage.reset = true;
+    _controller.reset();
     setState(() {
-      MyHomePage.reset = true;
-      _controller.reset();
+      MyHomePage.playAnimation = false;
       letter = '';
       supportLetter = '';
       supportList = [];
@@ -154,16 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // void startRaffle() {
-  //   Navigator.push(
-  //     context,
-  //     PageRouteBuilder(
-  //       pageBuilder: (_, __, ___) => const Raffle(),
-  //       transitionDuration: const Duration(seconds: 0),
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,10 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Raffle(isVisible: MyHomePage.playAnimation),
                 LatoText(size: 28, text: kUsedLettersText),
                 const SizedBox(height: 12),
-                Visibility(
-                    visible: supportList.isEmpty ? false : true,
-                    child: LatoText(
-                        size: 22, text: supportList.toString().toUpperCase())),
+                LatoText(size: 22, text: supportList.toString().toUpperCase()),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.15),
                 LatoText(size: 92, text: letter.toUpperCase()),
                 const SizedBox(height: 50),

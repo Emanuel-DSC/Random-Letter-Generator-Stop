@@ -37,8 +37,7 @@ class _RaffleState extends State<Raffle> {
                                       onComplete: (controller) {
                                         setState(() {
                                           widget.isVisible = false;
-                                          print(MyHomePage.playAnimation);
-                                        });
+                                                                                  });
                                       }))))),
     );
   }
