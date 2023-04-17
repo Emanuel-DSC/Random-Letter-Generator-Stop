@@ -12,6 +12,7 @@ class Categories extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: ListView(
+          
           children: [ListCard(text: kCategoriesText1), 
           ListCard(text: kCategoriesText2), ListCard(text: kCategoriesText3), 
           ListCard(text: kCategoriesText4), ListCard(text: kCategoriesText5), 

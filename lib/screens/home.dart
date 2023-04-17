@@ -1,11 +1,12 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:stop/widgets/alert_dialog/reset_dialog.dart';
 import 'package:stop/widgets/animated_raffle.dart';
 import 'package:stop/widgets/circle_button.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
-import 'package:stop/widgets/my_alert_dialog.dart';
+import 'package:stop/widgets/alert_dialog/my_alert_dialog.dart';
 import 'package:stop/widgets/my_timer.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -15,15 +16,15 @@ class MyHomePage extends StatefulWidget {
   static bool playAnimation = false;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   final CountDownController _controller = CountDownController();
   String letter = '';
   String supportLetter = '';
   List supportList = [];
-  List list = [
+  static List list = [
     'a',
     'b',
     'c',
@@ -67,7 +68,40 @@ class _MyHomePageState extends State<MyHomePage> {
             return MyAlertDialog(onTap: () => Navigator.of(context).pop());
           },
         );
-        reset();
+        setState(() {
+              MyHomePage.playAnimation = false;
+              letter = '';
+              supportLetter = '';
+              supportList = [];
+              list = [
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f',
+                'g',
+                'h',
+                'i',
+                'j',
+                'k',
+                'l',
+                'm',
+                'n',
+                'o',
+                'p',
+                'q',
+                'r',
+                's',
+                't',
+                'u',
+                'v',
+                'x',
+                'w',
+                'y',
+                'z'
+              ];
+            });
       }
       waitAnimation();
     });
@@ -76,45 +110,57 @@ class _MyHomePageState extends State<MyHomePage> {
   void reset() {
     MyHomePage.reset = true;
     _controller.reset();
-    setState(() {
-      MyHomePage.playAnimation = false;
-      letter = '';
-      supportLetter = '';
-      supportList = [];
-      list = [
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f',
-        'g',
-        'h',
-        'i',
-        'j',
-        'k',
-        'l',
-        'm',
-        'n',
-        'o',
-        'p',
-        'q',
-        'r',
-        's',
-        't',
-        'u',
-        'v',
-        'x',
-        'w',
-        'y',
-        'z'
-      ];
-    });
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return ResetAlertDialog(
+          onTap: () => Navigator.of(context).pop(),
+          onTap2: () {
+            setState(() {
+              MyHomePage.playAnimation = false;
+              letter = '';
+              supportLetter = '';
+              supportList = [];
+              list = [
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f',
+                'g',
+                'h',
+                'i',
+                'j',
+                'k',
+                'l',
+                'm',
+                'n',
+                'o',
+                'p',
+                'q',
+                'r',
+                's',
+                't',
+                'u',
+                'v',
+                'x',
+                'w',
+                'y',
+                'z'
+              ];
+            });
+            Navigator.of(context).pop();
+          },
+        );
+      },
+    );
   }
 
   void waitAnimation() async {
     if (MyHomePage.playAnimation) {
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 3));
       setState(() {
         MyHomePage.playAnimation = false;
         _controller.start();

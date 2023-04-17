@@ -10,11 +10,15 @@ Color kAlertDialogColor = const Color(0xFF371f33);
 Color kDrawerColor = const Color.fromARGB(255, 32, 29, 36);
 Color kCategoriesTileColor = const Color(0xFF5a3b58);
 
-// dialog alert
+// alert dialog
 String kUsedLettersText = 'Used letters: ';
 String kAlertDialogTitle = 'Whoah!';
 String kAlertDialogText =
     'You used every letter of the alphabet. I hope you had a good game';
+
+String kAlertDialogTitleReset = 'Are you sure?';
+String kAlertDialogTextReset =
+    'Clear every letter drawn ?';
 
 //categories
 String kCategoriesText1 = 'Men';
