@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
@@ -12,9 +13,19 @@ class TimerSettings extends StatefulWidget {
 }
 
 class TimerSettingsState extends State<TimerSettings> {
-  // create TimeOfDay variable
   static int currentHorizontalIntValue = 60;
   bool isSwitched = false;
+  final switchData = GetStorage();
+
+  @override
+  void initState() {
+    super.initState();
+    if (switchData.read('isSwitched') != null) {
+      setState(() {
+        isSwitched = switchData.read('isSwitched');
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +64,12 @@ class TimerSettingsState extends State<TimerSettings> {
             onChanged: (value) {
               setState(() {
                 isSwitched = value;
+                switchData.write('isSwitched', isSwitched);
                 if (isSwitched == false) {
                   MyTimer.vol = 1;
-                }
-                else {
+                } else {
                   MyTimer.vol = 0;
-                }              
+                }
               });
             },
           ),

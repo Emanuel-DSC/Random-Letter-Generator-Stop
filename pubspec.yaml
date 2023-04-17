@@ -43,6 +43,7 @@ dependencies:
   flutter_ringtone_player: ^3.2.0
   numberpicker: ^2.1.2
   flutter_animate: ^4.1.1+1
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:
