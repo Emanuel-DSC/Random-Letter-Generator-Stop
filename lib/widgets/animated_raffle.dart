@@ -1,8 +1,6 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:stop/screens/drawer.dart';
-import 'package:stop/screens/home.dart';
 import 'package:stop/widgets/lato_text.dart';
 
 class Raffle extends StatefulWidget {
@@ -12,6 +10,7 @@ class Raffle extends StatefulWidget {
   @override
   State<Raffle> createState() => _RaffleState();
 }
+
 
 class _RaffleState extends State<Raffle> {
   @override
@@ -37,7 +36,7 @@ class _RaffleState extends State<Raffle> {
                                       onComplete: (controller) {
                                         setState(() {
                                           widget.isVisible = false;
-                                                                                  });
+                                        });
                                       }))))),
     );
   }

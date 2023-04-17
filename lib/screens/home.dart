@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -61,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
       supportList.add(supportLetter);
       letter = supportLetter;
       list.remove(supportLetter);
-      _controller.start();
 
       if (list.isEmpty) {
         showDialog(
@@ -72,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
         reset();
       }
+      waitAnimation();
     });
   }
 
@@ -114,6 +112,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void waitAnimation() async {
+    if (MyHomePage.playAnimation) {
+      await Future.delayed(const Duration(seconds: 1));
+      setState(() {
+        MyHomePage.playAnimation = false;
+        _controller.start();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,24 +135,34 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Raffle(isVisible: MyHomePage.playAnimation),
-                LatoText(size: 28, text: kUsedLettersText),
-                const SizedBox(height: 12),
-                LatoText(size: 22, text: supportList.toString().toUpperCase()),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.15),
-                LatoText(size: 92, text: letter.toUpperCase()),
-                const SizedBox(height: 50),
-                MyTimer(controller: _controller),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Circle_Button(
-                        shuffle, kButtonColor, FontAwesomeIcons.shuffle),
-                    const SizedBox(width: 10),
-                    Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
-                  ],
+                Visibility(
+                  maintainState: true,
+                  visible: MyHomePage.playAnimation ? false : true,
+                  child: Column(
+                    children: [
+                      LatoText(size: 28, text: kUsedLettersText),
+                      const SizedBox(height: 12),
+                      LatoText(
+                          size: 22, text: supportList.toString().toUpperCase()),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.15),
+                      LatoText(size: 92, text: letter.toUpperCase()),
+                      const SizedBox(height: 50),
+                      MyTimer(controller: _controller),
+                      const SizedBox(height: 30),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Circle_Button(
+                              shuffle, kButtonColor, FontAwesomeIcons.shuffle),
+                          const SizedBox(width: 10),
+                          Circle_Button(
+                              reset, kResetColor, FontAwesomeIcons.eraser),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 15),
               ],
             ),
           ),
