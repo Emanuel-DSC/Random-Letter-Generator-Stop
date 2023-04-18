@@ -1,5 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stop/widgets/alert_dialog/reset_dialog.dart';
 import 'package:stop/widgets/animated_raffle.dart';
@@ -21,6 +22,7 @@ class MyHomePage extends StatefulWidget {
 
 class MyHomePageState extends State<MyHomePage> {
   final CountDownController _controller = CountDownController();
+  bool isButtonEnabled = true;
   String letter = '';
   String supportLetter = '';
   List supportList = [];
@@ -54,63 +56,67 @@ class MyHomePageState extends State<MyHomePage> {
   ];
 
   void shuffle() async {
-    setState(() {
-      MyHomePage.playAnimation = true;
-      supportLetter = (list..shuffle()).first;
-      supportList.add(supportLetter);
-      letter = supportLetter;
-      list.remove(supportLetter);
+    if (isButtonEnabled) {
+      setState(() {
+        isButtonEnabled = false;
+        MyHomePage.playAnimation = true;
+        FlutterRingtonePlayer.play(
+            fromAsset: "assets/raffleSound2.mp3", volume: MyTimer.vol);
+        supportLetter = (list..shuffle()).first;
+        supportList.add(supportLetter);
+        letter = supportLetter;
+        list.remove(supportLetter);
 
-      if (list.isEmpty) {
-        showDialog(
-          context: context,
-          builder: (context) {
-            return MyAlertDialog(onTap: () => Navigator.of(context).pop());
-          },
-        );
-        setState(() {
-              MyHomePage.playAnimation = false;
-              letter = '';
-              supportLetter = '';
-              supportList = [];
-              list = [
-                'a',
-                'b',
-                'c',
-                'd',
-                'e',
-                'f',
-                'g',
-                'h',
-                'i',
-                'j',
-                'k',
-                'l',
-                'm',
-                'n',
-                'o',
-                'p',
-                'q',
-                'r',
-                's',
-                't',
-                'u',
-                'v',
-                'x',
-                'w',
-                'y',
-                'z'
-              ];
-            });
-      }
-      waitAnimation();
-    });
+        if (list.isEmpty) {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return MyAlertDialog(onTap: () => Navigator.of(context).pop());
+            },
+          );
+          setState(() {
+            MyHomePage.playAnimation = false;
+            letter = '';
+            supportLetter = '';
+            supportList = [];
+            list = [
+              'a',
+              'b',
+              'c',
+              'd',
+              'e',
+              'f',
+              'g',
+              'h',
+              'i',
+              'j',
+              'k',
+              'l',
+              'm',
+              'n',
+              'o',
+              'p',
+              'q',
+              'r',
+              's',
+              't',
+              'u',
+              'v',
+              'x',
+              'w',
+              'y',
+              'z'
+            ];
+          });
+        }
+        waitAnimation();
+      });
+    }
   }
 
   void reset() {
     MyHomePage.reset = true;
     _controller.reset();
-
     showDialog(
       context: context,
       builder: (context) {
@@ -118,6 +124,8 @@ class MyHomePageState extends State<MyHomePage> {
           onTap: () => Navigator.of(context).pop(),
           onTap2: () {
             setState(() {
+              isButtonEnabled = true;
+              FlutterRingtonePlayer.stop();
               MyHomePage.playAnimation = false;
               letter = '';
               supportLetter = '';
@@ -160,10 +168,11 @@ class MyHomePageState extends State<MyHomePage> {
 
   void waitAnimation() async {
     if (MyHomePage.playAnimation) {
-      await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 5));
       setState(() {
         MyHomePage.playAnimation = false;
         _controller.start();
+        isButtonEnabled = true;
       });
     }
   }
@@ -188,13 +197,12 @@ class MyHomePageState extends State<MyHomePage> {
                   child: LatoText(
                       size: 22, text: supportList.toString().toUpperCase()),
                 ),
-                SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1),
-                    Raffle(isVisible: MyHomePage.playAnimation),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                Raffle(isVisible: MyHomePage.playAnimation),
                 Visibility(
-                  maintainState: true,
-                  visible: MyHomePage.playAnimation ? false : true,
-                  child: LatoText(size: 92, text: letter.toUpperCase())),
+                    maintainState: true,
+                    visible: MyHomePage.playAnimation ? false : true,
+                    child: LatoText(size: 92, text: letter.toUpperCase())),
                 const SizedBox(height: 50),
                 MyTimer(controller: _controller),
                 const SizedBox(height: 30),
@@ -204,8 +212,7 @@ class MyHomePageState extends State<MyHomePage> {
                     Circle_Button(
                         shuffle, kButtonColor, FontAwesomeIcons.shuffle),
                     const SizedBox(width: 10),
-                    Circle_Button(
-                        reset, kResetColor, FontAwesomeIcons.eraser),
+                    Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
                   ],
                 ),
               ],

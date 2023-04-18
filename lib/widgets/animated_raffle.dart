@@ -15,7 +15,7 @@ class Raffle extends StatefulWidget {
 class _RaffleState extends State<Raffle> {
   @override
   Widget build(BuildContext context) {
-    int duration = 200;
+    int duration = 300;
     int delay = 20;
     double end = - 250;
 
@@ -83,6 +83,30 @@ class _RaffleState extends State<Raffle> {
                                       delay: delay.ms,
                                       duration: duration.ms,
                                       builder: (_, __) =>
+                                      const LatoText(size: 92, text: 'H')
+                                  .animate()
+                                  .moveX(begin: MediaQuery.of(context).size.width * 0.1, end: end)
+                                  .fadeOut()
+                                  .swap(
+                                      delay: delay.ms,
+                                      duration: duration.ms,
+                                      builder: (_, __) =>
+                                      const LatoText(size: 92, text: 'I')
+                                  .animate()
+                                  .moveX(begin: MediaQuery.of(context).size.width * 0.1, end: end)
+                                  .fadeOut()
+                                  .swap(
+                                      delay: delay.ms,
+                                      duration: duration.ms,
+                                      builder: (_, __) =>
+                                      const LatoText(size: 92, text: 'J')
+                                  .animate()
+                                  .moveX(begin: MediaQuery.of(context).size.width * 0.1, end: end)
+                                  .fadeOut()
+                                  .swap(
+                                      delay: delay.ms,
+                                      duration: duration.ms,
+                                      builder: (_, __) =>
                                           const LatoText(size: 92, text: '?')
                                               .animate(
                                                   delay: 4.seconds,
@@ -90,7 +114,7 @@ class _RaffleState extends State<Raffle> {
                                                     setState(() {
                                                       widget.isVisible = false;
                                                     });
-                                                  })))))))),
+                                                  }))))))))))),
       ],)
     );
   }
