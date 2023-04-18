@@ -24,8 +24,8 @@ class _RaffleState extends State<Raffle> {
       child: Stack(alignment: AlignmentDirectional.center,
         children: [
         Container(
-          height: 150,
-          width: 150,
+          height: 120,
+          width: 120,
           decoration: BoxDecoration(
             color: Colors.transparent,
             border: Border.all(

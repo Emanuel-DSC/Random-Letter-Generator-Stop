@@ -26,8 +26,10 @@ class MyTimer extends StatelessWidget {
       height: 100,
       duration: TimerSettingsState.currentHorizontalIntValue,
       ringColor: kButtonColor,
-      fillGradient: LinearGradient(
-          colors: [Colors.red.shade700, Colors.white, Colors.white]),
+      ringGradient: LinearGradient(
+        begin: Alignment.center,
+        end: Alignment.topLeft,
+      colors: [Colors.white, kResetColor]),
       fillColor: kButtonColor,
       strokeWidth: 2.5,
       textStyle: GoogleFonts.lato(

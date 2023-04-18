@@ -179,35 +179,34 @@ class MyHomePageState extends State<MyHomePage> {
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Raffle(isVisible: MyHomePage.playAnimation),
+              children: [
+                LatoText(size: 28, text: kUsedLettersText),
+                const SizedBox(height: 12),
                 Visibility(
                   maintainState: true,
                   visible: MyHomePage.playAnimation ? false : true,
-                  child: Column(
-                    children: [
-                      LatoText(size: 28, text: kUsedLettersText),
-                      const SizedBox(height: 12),
-                      LatoText(
-                          size: 22, text: supportList.toString().toUpperCase()),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.15),
-                      LatoText(size: 92, text: letter.toUpperCase()),
-                      const SizedBox(height: 50),
-                      MyTimer(controller: _controller),
-                      const SizedBox(height: 30),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Circle_Button(
-                              shuffle, kButtonColor, FontAwesomeIcons.shuffle),
-                          const SizedBox(width: 10),
-                          Circle_Button(
-                              reset, kResetColor, FontAwesomeIcons.eraser),
-                        ],
-                      ),
-                    ],
-                  ),
+                  child: LatoText(
+                      size: 22, text: supportList.toString().toUpperCase()),
+                ),
+                SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1),
+                    Raffle(isVisible: MyHomePage.playAnimation),
+                Visibility(
+                  maintainState: true,
+                  visible: MyHomePage.playAnimation ? false : true,
+                  child: LatoText(size: 92, text: letter.toUpperCase())),
+                const SizedBox(height: 50),
+                MyTimer(controller: _controller),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Circle_Button(
+                        shuffle, kButtonColor, FontAwesomeIcons.shuffle),
+                    const SizedBox(width: 10),
+                    Circle_Button(
+                        reset, kResetColor, FontAwesomeIcons.eraser),
+                  ],
                 ),
               ],
             ),
