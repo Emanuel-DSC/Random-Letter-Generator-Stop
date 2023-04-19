@@ -175,7 +175,7 @@ class MyHomePageState extends State<MyHomePage> {
         _controller.start();
         isButtonEnabled = true;
 
-        if (MyHomePage.reset == true) {
+        if (MyHomePage.reset) {
           _controller.reset();
         }
       });

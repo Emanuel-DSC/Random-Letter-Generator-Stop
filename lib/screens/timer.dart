@@ -55,7 +55,7 @@ class TimerSettingsState extends State<TimerSettings> {
             ),
           ),
           const SizedBox(height: 50),
-          const LatoText(size: 22, text: 'Mute alarm'),
+          const LatoText(size: 22, text: 'Mute'),
           const SizedBox(height: 5),
           Switch(
             activeColor: kResetColor,
