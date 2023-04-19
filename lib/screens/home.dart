@@ -116,7 +116,6 @@ class MyHomePageState extends State<MyHomePage> {
 
   void reset() {
     MyHomePage.reset = true;
-    _controller.reset();
     showDialog(
       context: context,
       builder: (context) {
@@ -124,6 +123,7 @@ class MyHomePageState extends State<MyHomePage> {
           onTap: () => Navigator.of(context).pop(),
           onTap2: () {
             setState(() {
+              _controller.reset();
               isButtonEnabled = true;
               FlutterRingtonePlayer.stop();
               MyHomePage.playAnimation = false;
@@ -167,12 +167,17 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   void waitAnimation() async {
+    _controller.pause();
     if (MyHomePage.playAnimation) {
       await Future.delayed(const Duration(seconds: 5));
       setState(() {
         MyHomePage.playAnimation = false;
         _controller.start();
         isButtonEnabled = true;
+
+        if (MyHomePage.reset == true) {
+          _controller.reset();
+        }
       });
     }
   }
