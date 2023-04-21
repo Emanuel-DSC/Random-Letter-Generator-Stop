@@ -26,35 +26,7 @@ class MyHomePageState extends State<MyHomePage> {
   String letter = '';
   String supportLetter = '';
   List supportList = [];
-  static List list = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'x',
-    'w',
-    'y',
-    'z'
-  ];
-
+  
   void shuffle() async {
     if (isButtonEnabled) {
       setState(() {
@@ -78,35 +50,8 @@ class MyHomePageState extends State<MyHomePage> {
             MyHomePage.playAnimation = false;
             letter = '';
             supportLetter = '';
+            list.addAll(supportList);
             supportList = [];
-            list = [
-              'a',
-              'b',
-              'c',
-              'd',
-              'e',
-              'f',
-              'g',
-              'h',
-              'i',
-              'j',
-              'k',
-              'l',
-              'm',
-              'n',
-              'o',
-              'p',
-              'q',
-              'r',
-              's',
-              't',
-              'u',
-              'v',
-              'x',
-              'w',
-              'y',
-              'z'
-            ];
           });
         }
         waitAnimation();
@@ -129,35 +74,9 @@ class MyHomePageState extends State<MyHomePage> {
               MyHomePage.playAnimation = false;
               letter = '';
               supportLetter = '';
+              list.addAll(supportList);
               supportList = [];
-              list = [
-                'a',
-                'b',
-                'c',
-                'd',
-                'e',
-                'f',
-                'g',
-                'h',
-                'i',
-                'j',
-                'k',
-                'l',
-                'm',
-                'n',
-                'o',
-                'p',
-                'q',
-                'r',
-                's',
-                't',
-                'u',
-                'v',
-                'x',
-                'w',
-                'y',
-                'z'
-              ];
+              print(list);
             });
             Navigator.of(context).pop();
           },

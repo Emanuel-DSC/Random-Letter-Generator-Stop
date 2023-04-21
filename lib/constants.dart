@@ -62,3 +62,34 @@ final myTextStyle = GoogleFonts.lato(
         color: kResetColor,
         fontWeight: FontWeight.w500,
       ); 
+
+// list 
+
+List list = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'x',
+    'w',
+    'y',
+    'z'
+  ];
