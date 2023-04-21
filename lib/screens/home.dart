@@ -76,7 +76,6 @@ class MyHomePageState extends State<MyHomePage> {
               supportLetter = '';
               list.addAll(supportList);
               supportList = [];
-              print(list);
             });
             Navigator.of(context).pop();
           },
@@ -121,7 +120,7 @@ class MyHomePageState extends State<MyHomePage> {
                   child: LatoText(
                       size: 22, text: supportList.toString().toUpperCase()),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 Raffle(isVisible: MyHomePage.playAnimation),
                 Visibility(
                     maintainState: true,

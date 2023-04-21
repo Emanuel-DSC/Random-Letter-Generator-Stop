@@ -11,7 +11,7 @@ Color kDrawerColor = const Color.fromARGB(255, 32, 29, 36);
 Color kCategoriesTileColor = const Color(0xFF5a3b58);
 
 // alert dialog
-String kUsedLettersText = 'Used letters: ';
+String kUsedLettersText = 'Used letters: '.toUpperCase();
 String kAlertDialogTitle = 'Whoah!';
 String kAlertDialogText =
     'You used every letter of the alphabet. I hope you had a good game';
