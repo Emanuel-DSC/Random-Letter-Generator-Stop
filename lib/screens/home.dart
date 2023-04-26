@@ -9,6 +9,8 @@ import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
 import 'package:stop/widgets/alert_dialog/my_alert_dialog.dart';
 import 'package:stop/widgets/my_timer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -112,7 +114,7 @@ class MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                LatoText(size: 28, text: kUsedLettersText),
+                LatoText(size: 28, text: AppLocalizations.of(context)!.kUsedLettersText.toUpperCase()), 
                 const SizedBox(height: 12),
                 Visibility(
                   maintainState: true,

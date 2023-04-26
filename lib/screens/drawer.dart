@@ -3,7 +3,8 @@ import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/screens/categories.dart';
 import 'package:stop/screens/home.dart';
-import 'package:stop/screens/timer.dart';
+import 'package:stop/screens/settings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SideDrawer extends StatefulWidget {
   const SideDrawer({Key? key}) : super(key: key);
@@ -14,6 +15,9 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   List<ScreenHiddenDrawer> _pages = [];
+  String name1 = kDrawerHomeText;
+  String name2 = kDrawerSettingsText;
+  String name3 = kDrawerCategoriesText;
 
   @override
   void initState() {
@@ -21,29 +25,35 @@ class _SideDrawerState extends State<SideDrawer> {
 
     _pages = [
       ScreenHiddenDrawer(
-        ItemHiddenMenu(
-        colorLineSelected: kResetColor,
-        baseStyle: myTextStyle,
-        name: kDrawerHomeText, 
-        selectedStyle: myTextStyle), 
-        const MyHomePage()),
-
+          ItemHiddenMenu(
+              colorLineSelected: kResetColor,
+              baseStyle: myTextStyle,
+              name: name1,
+              selectedStyle: myTextStyle),
+          const MyHomePage()),
       ScreenHiddenDrawer(
-        ItemHiddenMenu(
-        colorLineSelected: kResetColor,
-        baseStyle: myTextStyle,
-        name: kDrawerTimerText, 
-        selectedStyle: myTextStyle), 
-        const TimerSettings()),
-
+          ItemHiddenMenu(
+              colorLineSelected: kResetColor,
+              baseStyle: myTextStyle,
+              name: name2,
+              selectedStyle: myTextStyle),
+          const Settings()),
       ScreenHiddenDrawer(
-        ItemHiddenMenu(
-        colorLineSelected: kResetColor,
-        baseStyle: myTextStyle,
-        name: kDrawerCategoriesText, 
-        selectedStyle: myTextStyle), 
-        const Categories()),
+          ItemHiddenMenu(
+              colorLineSelected: kResetColor,
+              baseStyle: myTextStyle,
+              name: name3,
+              selectedStyle: myTextStyle),
+          const Categories()),
     ];
+
+    Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        name1 = AppLocalizations.of(context)!.kDrawerHomeText;
+        name2 = AppLocalizations.of(context)!.kDrawerSettingsText;
+        name3 = AppLocalizations.of(context)!.kDrawerCategoriesText;
+      });
+    });
   }
 
   @override
@@ -51,7 +61,7 @@ class _SideDrawerState extends State<SideDrawer> {
     return HiddenDrawerMenu(
       elevationAppBar: 0,
       backgroundColorAppBar: kBgColor,
-      backgroundColorMenu: kDrawerColor, 
+      backgroundColorMenu: kDrawerColor,
       screens: _pages,
       initPositionSelected: 0,
       slidePercent: 40,

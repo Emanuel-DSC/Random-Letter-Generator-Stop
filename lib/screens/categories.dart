@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/list_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -13,15 +15,15 @@ class Categories extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: ListView(
           
-          children: [ListCard(text: kCategoriesText1), 
-          ListCard(text: kCategoriesText2), ListCard(text: kCategoriesText3), 
-          ListCard(text: kCategoriesText4), ListCard(text: kCategoriesText5), 
-          ListCard(text: kCategoriesText6), ListCard(text: kCategoriesText7), 
-          ListCard(text: kCategoriesText8), ListCard(text: kCategoriesText9), 
-          ListCard(text: kCategoriesText10), ListCard(text: kCategoriesText11),
-          ListCard(text: kCategoriesText12), ListCard(text: kCategoriesText13),
-          ListCard(text: kCategoriesText14), ListCard(text: kCategoriesText15),
-          ListCard(text: kCategoriesText16), ListCard(text: kCategoriesText17)],
+          children: [ListCard(text: AppLocalizations.of(context)!.kCategoriesText1.toUpperCase()), 
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText2.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText3.toUpperCase()), 
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText4.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText5.toUpperCase()), 
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText6.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText7.toUpperCase()), 
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText8.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText9.toUpperCase()), 
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText10.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText11.toUpperCase()),
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText12.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText13.toUpperCase()),
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText14.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText15.toUpperCase()),
+          ListCard(text: AppLocalizations.of(context)!.kCategoriesText16.toUpperCase()), ListCard(text: AppLocalizations.of(context)!.kCategoriesText17.toUpperCase())],
         ),
       ),
     );

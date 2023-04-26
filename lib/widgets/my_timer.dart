@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/screens/home.dart';
-import 'package:stop/screens/timer.dart';
+import 'package:stop/screens/settings.dart';
 
 class MyTimer extends StatelessWidget {
   const MyTimer({
@@ -24,12 +24,12 @@ class MyTimer extends StatelessWidget {
       controller: _controller,
       width: 100,
       height: 100,
-      duration: TimerSettingsState.currentHorizontalIntValue,
+      duration: SettingsState.currentHorizontalIntValue,
       ringColor: kButtonColor,
       ringGradient: LinearGradient(
-        begin: Alignment.center,
-        end: Alignment.topLeft,
-      colors: [Colors.white, kResetColor]),
+          begin: Alignment.center,
+          end: Alignment.topLeft,
+          colors: [Colors.white, kResetColor]),
       fillColor: kButtonColor,
       strokeWidth: 2.5,
       textStyle: GoogleFonts.lato(

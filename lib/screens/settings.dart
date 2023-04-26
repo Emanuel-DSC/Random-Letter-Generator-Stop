@@ -4,15 +4,17 @@ import 'package:numberpicker/numberpicker.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
 import 'package:stop/widgets/my_timer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TimerSettings extends StatefulWidget {
-  const TimerSettings({super.key});
+
+class Settings extends StatefulWidget {
+  const Settings({super.key});
 
   @override
-  State<TimerSettings> createState() => TimerSettingsState();
+  State<Settings> createState() => SettingsState();
 }
 
-class TimerSettingsState extends State<TimerSettings> {
+class SettingsState extends State<Settings> {
   static int currentHorizontalIntValue = 60;
   bool isSwitched = false;
   final switchData = GetStorage();
@@ -29,14 +31,15 @@ class TimerSettingsState extends State<TimerSettings> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: kBgColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          LatoText(size: 22, text: kTimerText.toUpperCase()),
+          LatoText(size: 22, text:AppLocalizations.of(context)!.kSettingsText.toUpperCase()),
           const SizedBox(height: 5),
-          LatoText(size: 22, text: kTimerText2.toUpperCase()),
+          LatoText(size: 22, text: AppLocalizations.of(context)!.kSettingsText2.toUpperCase()),
           const SizedBox(height: 30),
           NumberPicker(
             textStyle: myTextStyle,
@@ -55,7 +58,7 @@ class TimerSettingsState extends State<TimerSettings> {
             ),
           ),
           const SizedBox(height: 50),
-          const LatoText(size: 22, text: 'Mute'),
+           LatoText(size: 22, text: AppLocalizations.of(context)!.kSettingsText3.toUpperCase()),
           const SizedBox(height: 5),
           Switch(
             activeColor: kResetColor,
