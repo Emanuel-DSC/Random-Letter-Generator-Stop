@@ -1,9 +1,9 @@
 {
     "@@locale": "en",
     "kUsedLettersText" : "Used letters: ",
-    "kDrawerHomeText": "kDrawerHomeText", 
-    "kDrawerSettingsText": "kDrawerSettingsText", 
-    "kDrawerCategoriesText": "kDrawerCategoriesText", 
+    "kDrawerHomeText": "Home", 
+    "kDrawerSettingsText": "Settings", 
+    "kDrawerCategoriesText": "Categories", 
     "kSettingsText": "choose the countdown time",
     "kSettingsText2": "(seconds)",
     "kSettingsText3": "mute",

@@ -15,49 +15,38 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   List<ScreenHiddenDrawer> _pages = [];
-  String name1 = kDrawerHomeText;
-  String name2 = kDrawerSettingsText;
-  String name3 = kDrawerCategoriesText;
 
   @override
   void initState() {
     super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     _pages = [
       ScreenHiddenDrawer(
           ItemHiddenMenu(
               colorLineSelected: kResetColor,
               baseStyle: myTextStyle,
-              name: name1,
+              name: AppLocalizations.of(context)!.kDrawerHomeText,
               selectedStyle: myTextStyle),
           const MyHomePage()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
               colorLineSelected: kResetColor,
               baseStyle: myTextStyle,
-              name: name2,
+              name: AppLocalizations.of(context)!.kDrawerSettingsText,
               selectedStyle: myTextStyle),
           const Settings()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
               colorLineSelected: kResetColor,
               baseStyle: myTextStyle,
-              name: name3,
+              name: AppLocalizations.of(context)!.kDrawerCategoriesText,
               selectedStyle: myTextStyle),
           const Categories()),
     ];
 
-    Future.delayed(const Duration(seconds: 5), () {
-      setState(() {
-        name1 = AppLocalizations.of(context)!.kDrawerHomeText;
-        name2 = AppLocalizations.of(context)!.kDrawerSettingsText;
-        name3 = AppLocalizations.of(context)!.kDrawerCategoriesText;
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return HiddenDrawerMenu(
       elevationAppBar: 0,
       backgroundColorAppBar: kBgColor,
