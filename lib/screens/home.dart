@@ -11,7 +11,6 @@ import 'package:stop/widgets/alert_dialog/my_alert_dialog.dart';
 import 'package:stop/widgets/my_timer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -28,7 +27,7 @@ class MyHomePageState extends State<MyHomePage> {
   String letter = '';
   String supportLetter = '';
   List supportList = [];
-  
+
   void shuffle() async {
     if (isButtonEnabled) {
       setState(() {
@@ -67,7 +66,12 @@ class MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (context) {
         return ResetAlertDialog(
-          onTap: () => Navigator.of(context).pop(),
+          onTap: () {
+            Navigator.of(context).pop();
+            if (MyHomePage.playAnimation) {
+              _controller.reset();
+            }
+          },
           onTap2: () {
             setState(() {
               _controller.reset();
@@ -114,7 +118,11 @@ class MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                LatoText(size: 28, text: AppLocalizations.of(context)!.kUsedLettersText.toUpperCase()), 
+                LatoText(
+                    size: 28,
+                    text: AppLocalizations.of(context)!
+                        .kUsedLettersText
+                        .toUpperCase()),
                 const SizedBox(height: 12),
                 Visibility(
                   maintainState: true,
