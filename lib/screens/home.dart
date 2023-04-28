@@ -118,11 +118,13 @@ class MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                LatoText(
-                    size: 28,
-                    text: AppLocalizations.of(context)!
-                        .kUsedLettersText
-                        .toUpperCase()),
+                Center(
+                  child: LatoText(
+                      size: 28,
+                      text: AppLocalizations.of(context)!
+                          .kUsedLettersText
+                          .toUpperCase()),
+                ),
                 const SizedBox(height: 12),
                 Visibility(
                   maintainState: true,
