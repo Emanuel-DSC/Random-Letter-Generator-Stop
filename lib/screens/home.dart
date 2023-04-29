@@ -120,7 +120,7 @@ class MyHomePageState extends State<MyHomePage> {
               children: [
                 Center(
                   child: LatoText(
-                      size: 28,
+                      size: 26,
                       text: AppLocalizations.of(context)!
                           .kUsedLettersText
                           .toUpperCase()),

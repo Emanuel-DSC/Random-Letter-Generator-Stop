@@ -1,7 +1,7 @@
 {
 
     "@@locale": "pt",
-    "kUsedLettersText" : "Letras já sorteadas: ",
+    "kUsedLettersText" : "Já sorteadas: ",
     "kDrawerHomeText": "Início", 
     "kDrawerSettingsText": "Ajustes", 
     "kDrawerCategoriesText": "Categorias", 
