@@ -145,9 +145,9 @@ class MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Circle_Button(
-                        shuffle, kButtonColor, FontAwesomeIcons.shuffle),
+                        shuffle,  kResetColor, FontAwesomeIcons.play),
                     const SizedBox(width: 10),
-                    Circle_Button(reset, kResetColor, FontAwesomeIcons.eraser),
+                    Circle_Button(reset, kButtonColor, FontAwesomeIcons.trashCan),
                   ],
                 ),
               ],

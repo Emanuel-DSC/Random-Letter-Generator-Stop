@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
 import 'package:stop/widgets/my_timer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:stop/widgets/timer_picker.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -31,34 +31,37 @@ class SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: kBgColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          LatoText(size: 22, text:AppLocalizations.of(context)!.kSettingsText.toUpperCase()),
-          const SizedBox(height: 5),
-          LatoText(size: 22, text: AppLocalizations.of(context)!.kSettingsText2.toUpperCase()),
+          LatoText(
+              size: 26,
+              text: AppLocalizations.of(context)!.kSettingsText.toUpperCase()),
+          const SizedBox(height: 22),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LatoText(
+                  size: 18,
+                  text: AppLocalizations.of(context)!.swipe.toUpperCase()),
+              const SizedBox(width: 15),
+              Icon(
+                (FontAwesomeIcons.arrowDownLong),
+                color: kLetterColor,
+              ),
+            ],
+          ),
           const SizedBox(height: 30),
-          NumberPicker(
-            textStyle: myTextStyle,
-            selectedTextStyle: mySelectedTextStyle,
-            value: currentHorizontalIntValue,
-            minValue: 30,
-            maxValue: 300,
-            step: 30,
-            itemHeight: 100,
-            axis: Axis.horizontal,
-            onChanged: (value) =>
-                setState(() => currentHorizontalIntValue = value),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: kButtonColor),
-            ),
+          const SizedBox(
+            height: 200,
+            child: TimerPicker(),
           ),
           const SizedBox(height: 50),
-           LatoText(size: 22, text: AppLocalizations.of(context)!.kSettingsText3.toUpperCase()),
+          LatoText(
+              size: 22,
+              text: AppLocalizations.of(context)!.kSettingsText3.toUpperCase()),
           const SizedBox(height: 5),
           Switch(
             activeColor: kResetColor,

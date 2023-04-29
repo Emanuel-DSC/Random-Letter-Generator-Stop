@@ -30,5 +30,6 @@
     "kAlertDialogTextReset" : "Clear every letter drawn ?",
     "cancel" : "Cancel",
     "confirm" : "Confirm",
-    "close" : "Close"
+    "close" : "Close", 
+    "swipe" : "Swipe"
 }

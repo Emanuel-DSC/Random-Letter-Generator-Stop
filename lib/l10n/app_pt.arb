@@ -31,5 +31,7 @@
     "kAlertDialogTextReset" : "Limpar todas as letras sorteadas ?",
     "cancel" : "Cancelar",
     "confirm" : "Confirmar",
-    "close" : "Fechar"
+    "close" : "Fechar", 
+    "swipe" : "Arraste"
+
 }

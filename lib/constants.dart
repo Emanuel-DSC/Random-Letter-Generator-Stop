@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 //colors
 Color kBgColor = const Color(0xFF1E1E1E);
-Color kButtonColor = const Color(0xFF52515C);
-Color kLetterColor = const Color.fromARGB(255, 187, 187, 187);
+Color kButtonColor = const Color(0xFF37363D);
+Color kLetterColor = const Color(0xFFBBBBBB);
 Color kResetColor = const Color(0xFF721B54);
 Color kAlertDialogColor = const Color(0xFF371f33);
-Color kDrawerColor = const Color.fromARGB(255, 32, 29, 36);
+Color kDrawerColor = const Color(0xFF201D24);
 Color kCategoriesTileColor = const Color(0xFF5a3b58);
 
 
