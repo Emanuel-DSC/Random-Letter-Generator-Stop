@@ -48,11 +48,14 @@ class MyHomePageState extends State<MyHomePage> {
             },
           );
           setState(() {
-            MyHomePage.playAnimation = false;
-            letter = '';
-            supportLetter = '';
-            list.addAll(supportList);
-            supportList = [];
+             _controller.reset();
+              isButtonEnabled = true;
+              FlutterRingtonePlayer.stop();
+              MyHomePage.playAnimation = false;
+              letter = '';
+              supportLetter = '';
+              list.addAll(supportList);
+              supportList = [];
           });
         }
         waitAnimation();
