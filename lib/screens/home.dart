@@ -2,6 +2,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:stop/screens/settings.dart';
 import 'package:stop/widgets/alert_dialog/reset_dialog.dart';
 import 'package:stop/widgets/animated_raffle.dart';
 import 'package:stop/widgets/circle_button.dart';
@@ -28,13 +29,25 @@ class MyHomePageState extends State<MyHomePage> {
   String supportLetter = '';
   List supportList = [];
 
+  @override
+  void initState() {
+    super.initState();
+    if (Settings.switchData.read('isSwitched') != null) {
+      setState(() {
+        Settings.isSwitched = Settings.switchData.read('isSwitched');
+      });
+    }
+  }
+
   void shuffle() async {
     if (isButtonEnabled) {
       setState(() {
         isButtonEnabled = false;
         MyHomePage.playAnimation = true;
-        FlutterRingtonePlayer.play(
-            fromAsset: "assets/raffleSound2.mp3", volume: MyTimer.vol);
+         if(Settings.isSwitched == false) {
+            FlutterRingtonePlayer.play(
+              fromAsset: "assets/raffleSound2.mp3", volume: 1);
+          }
         supportLetter = (list..shuffle()).first;
         supportList.add(supportLetter);
         letter = supportLetter;

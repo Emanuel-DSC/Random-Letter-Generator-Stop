@@ -14,7 +14,6 @@ class MyTimer extends StatelessWidget {
         super(key: key);
 
   final CountDownController _controller;
-  static double vol = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +38,10 @@ class MyTimer extends StatelessWidget {
         if (MyHomePage.reset == true) {
           MyHomePage.reset = false;
         } else {
-          FlutterRingtonePlayer.play(
-              fromAsset: "assets/alarm.wav", volume: MyTimer.vol);
+          if(Settings.isSwitched == false) {
+            FlutterRingtonePlayer.play(
+              fromAsset: "assets/alarm.wav", volume: 1);
+          }
         }
       },
     );

@@ -3,30 +3,36 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/widgets/lato_text.dart';
-import 'package:stop/widgets/my_timer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stop/widgets/timer_picker.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
 
+  static bool isSwitched = false;
+  static final switchData = GetStorage();
+
   @override
   State<Settings> createState() => SettingsState();
 }
 
 class SettingsState extends State<Settings> {
-  static int currentHorizontalIntValue = 60;
-  bool isSwitched = false;
-  final switchData = GetStorage();
+  static int currentHorizontalIntValue = 0;
+  
 
   @override
   void initState() {
     super.initState();
-    if (switchData.read('isSwitched') != null) {
+    if (Settings.switchData.read('isSwitched') != null) {
       setState(() {
-        isSwitched = switchData.read('isSwitched');
+        Settings.isSwitched = Settings.switchData.read('isSwitched');
       });
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -68,17 +74,15 @@ class SettingsState extends State<Settings> {
             Switch(
               activeColor: kResetColor,
               inactiveTrackColor: kButtonColor,
-              value: isSwitched,
+              value: Settings.isSwitched,
               onChanged: (value) {
-                setState(() {
-                  isSwitched = value;
-                  switchData.write('isSwitched', isSwitched);
-                  if (isSwitched == false) {
-                    MyTimer.vol = 1;
-                  } else {
-                    MyTimer.vol = 0;
-                  }
-                });
+                if (mounted) {
+                  setState(() {
+                    Settings.isSwitched = value;
+                    Settings.switchData.write('isSwitched', Settings.isSwitched);
+
+                  });
+                }
               },
             ),
             Row(
