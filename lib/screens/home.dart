@@ -2,6 +2,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:stop/screens/settings.dart';
 import 'package:stop/widgets/alert_dialog/reset_dialog.dart';
 import 'package:stop/widgets/animated_raffle.dart';
@@ -28,6 +29,7 @@ class MyHomePageState extends State<MyHomePage> {
   String letter = '';
   String supportLetter = '';
   List supportList = [];
+  final supportListData = GetStorage();
 
   @override
   void initState() {
@@ -37,6 +39,11 @@ class MyHomePageState extends State<MyHomePage> {
         Settings.isSwitched = Settings.switchData.read('isSwitched');
       });
     }
+    if (supportListData.read('supportList') != null) {
+      setState(() {
+        supportList = Settings.switchData.read('supportList');
+      });
+    }
   }
 
   void shuffle() async {
@@ -44,12 +51,13 @@ class MyHomePageState extends State<MyHomePage> {
       setState(() {
         isButtonEnabled = false;
         MyHomePage.playAnimation = true;
-         if(Settings.isSwitched == false) {
-            FlutterRingtonePlayer.play(
+        if (Settings.isSwitched == false) {
+          FlutterRingtonePlayer.play(
               fromAsset: "assets/raffleSound2.mp3", volume: 1);
-          }
+        }
         supportLetter = (list..shuffle()).first;
         supportList.add(supportLetter);
+        supportListData.write('supportList', supportList);
         letter = supportLetter;
         list.remove(supportLetter);
 
@@ -61,14 +69,15 @@ class MyHomePageState extends State<MyHomePage> {
             },
           );
           setState(() {
-             _controller.reset();
-              isButtonEnabled = true;
-              FlutterRingtonePlayer.stop();
-              MyHomePage.playAnimation = false;
-              letter = '';
-              supportLetter = '';
-              list.addAll(supportList);
-              supportList = [];
+            _controller.reset();
+            isButtonEnabled = true;
+            FlutterRingtonePlayer.stop();
+            MyHomePage.playAnimation = false;
+            letter = '';
+            supportLetter = '';
+            list.addAll(supportList);
+            supportList = [];
+            supportListData.write('supportList', supportList);
           });
         }
         waitAnimation();
@@ -98,6 +107,7 @@ class MyHomePageState extends State<MyHomePage> {
               supportLetter = '';
               list.addAll(supportList);
               supportList = [];
+              supportListData.write('supportList', supportList);
             });
             Navigator.of(context).pop();
           },
@@ -160,10 +170,10 @@ class MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Circle_Button(
-                        shuffle,  kResetColor, FontAwesomeIcons.play),
+                    Circle_Button(shuffle, kResetColor, FontAwesomeIcons.play),
                     const SizedBox(width: 10),
-                    Circle_Button(reset, kButtonColor, FontAwesomeIcons.trashCan),
+                    Circle_Button(
+                        reset, kButtonColor, FontAwesomeIcons.trashCan),
                   ],
                 ),
               ],
