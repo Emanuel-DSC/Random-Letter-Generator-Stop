@@ -17,8 +17,7 @@ class Settings extends StatefulWidget {
 }
 
 class SettingsState extends State<Settings> {
-  static int currentHorizontalIntValue = 0;
-  
+  static int currentTime = 0;
 
   @override
   void initState() {
@@ -46,7 +45,8 @@ class SettingsState extends State<Settings> {
           children: <Widget>[
             LatoText(
                 size: 26,
-                text: AppLocalizations.of(context)!.kSettingsText.toUpperCase()),
+                text:
+                    AppLocalizations.of(context)!.kSettingsText.toUpperCase()),
             const SizedBox(height: 22),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +69,8 @@ class SettingsState extends State<Settings> {
             const SizedBox(height: 50),
             LatoText(
                 size: 22,
-                text: AppLocalizations.of(context)!.kSettingsText3.toUpperCase()),
+                text:
+                    AppLocalizations.of(context)!.kSettingsText3.toUpperCase()),
             const SizedBox(height: 5),
             Switch(
               activeColor: kResetColor,
@@ -79,8 +80,8 @@ class SettingsState extends State<Settings> {
                 if (mounted) {
                   setState(() {
                     Settings.isSwitched = value;
-                    Settings.switchData.write('isSwitched', Settings.isSwitched);
-
+                    Settings.switchData
+                        .write('isSwitched', Settings.isSwitched);
                   });
                 }
               },

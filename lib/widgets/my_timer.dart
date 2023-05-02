@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stop/constants.dart';
 import 'package:stop/screens/home.dart';
 import 'package:stop/screens/settings.dart';
+import 'package:stop/widgets/timer_picker.dart';
 
 class MyTimer extends StatelessWidget {
   const MyTimer({
@@ -23,7 +24,7 @@ class MyTimer extends StatelessWidget {
       controller: _controller,
       width: 100,
       height: 100,
-      duration: SettingsState.currentHorizontalIntValue,
+      duration: TimerPicker.currentTimeData.read('currentTime') ?? 0,
       ringColor: kButtonColor,
       ringGradient: LinearGradient(
           begin: Alignment.center,

@@ -7,6 +7,8 @@ import 'package:stop/screens/settings.dart';
 class TimerPicker extends StatefulWidget {
   const TimerPicker({super.key});
 
+  static final currentTimeData = GetStorage();
+
   @override
   State<TimerPicker> createState() => _TimerPickerState();
 }
@@ -14,8 +16,8 @@ class TimerPicker extends StatefulWidget {
 class _TimerPickerState extends State<TimerPicker> {
   var minutes = 0;
   var seconds = 0;
-  final minutesData = GetStorage();
   final secondsData = GetStorage();
+  final minutesData = GetStorage();
 
   @override
   void initState() {
@@ -28,6 +30,11 @@ class _TimerPickerState extends State<TimerPicker> {
     if (secondsData.read('seconds') != null) {
       setState(() {
         seconds = secondsData.read('seconds');
+      });
+    }
+    if (TimerPicker.currentTimeData.read('currentTime') != null) {
+      setState(() {
+        SettingsState.currentTime = TimerPicker.currentTimeData.read('currentTime');
       });
     }
   }
@@ -57,9 +64,9 @@ class _TimerPickerState extends State<TimerPicker> {
                     onChanged: (value) {
                       setState(() {
                         minutes = value;
-                        SettingsState.currentHorizontalIntValue =
-                            (minutes * 60) + seconds;
+                        SettingsState.currentTime = (minutes * 60) + seconds;
                         minutesData.write('minutes', minutes);
+                        TimerPicker.currentTimeData.write('currentTime', SettingsState.currentTime);
                       });
                     },
                     textStyle:
@@ -86,9 +93,10 @@ class _TimerPickerState extends State<TimerPicker> {
                     onChanged: (value) {
                       setState(() {
                         seconds = value;
-                        SettingsState.currentHorizontalIntValue =
-                            (minutes * 60) + seconds;
+                        SettingsState.currentTime = (minutes * 60) + seconds;
                         secondsData.write('seconds', seconds);
+                        TimerPicker.currentTimeData.write('currentTime', SettingsState.currentTime);
+
                       });
                     },
                     textStyle:
