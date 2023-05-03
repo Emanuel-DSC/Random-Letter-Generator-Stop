@@ -56,27 +56,13 @@
 </div>
 <br>
 
-* Light mode   
-
-<br>
-<div>
-  <img src="https://user-images.githubusercontent.com/61395660/229266038-1457a9a5-c8d7-4fed-b00c-e1b4a71264c8.jpg" alt="DashboardLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266041-671ecad6-434f-4d3b-86ef-91eb0431a157.jpg" alt="descriptionLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266042-2ce1819f-3df7-40eb-805a-7ffcf4f21b57.jpg" alt="editProfileLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266043-9a4e7e9d-9333-4174-8cfd-2f6ee4c3a988.jpg" alt="emailLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266044-368b5c43-9ecf-48ba-9af1-c899d968b0b0.jpg" alt="emailSelectLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266046-705f5f71-7ef4-4386-a004-eeca6da65e16.jpg" alt="favoritesScreenLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266047-a16728b6-c66d-49ea-b092-5cc1bdd02d91.jpg" alt="filteredMovieLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266049-d14f7423-d499-4853-94d1-602f472e8fa2.jpg" alt="loginLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266051-94a127d9-11cb-4cce-ac8c-7d8a78c144d7.jpg" alt="signUpLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266053-6b30ed07-b071-467b-8b48-d9fdebbef99e.jpg" alt="verificationLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266054-efd35f1a-40f4-4602-90b3-54739fd73726.jpg" alt="welcomeLight" width="23%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/229266165-622ad68e-bd89-4225-8f31-5fbcbe1e2def.jpg" alt="profileScreenLight" width="23%" height="auto"/>
-</div>
-<br>
-
 ## About this Project
-It's a 'Stop!' game letters raffle. Also includes a countdown timer and some categories to get inspiration if your mind go blank.
+With this app you can: 
+
+Generate a random letter (no repetition) ; 
+Use a coutdown timer; 
+Get idea from categories section if your mind go blank.
+
 
 ## Why ? 
 My family have moved to a new place and we had nothing else to do but play 'Stop!' in the occasion. We got frustrated every time we counted our fingers and it was a letter that already have been used. So I created this app to prevent this problem for us. Now it's part of my personal portfolio, so any feedback about the project, code, structure or anything else will be very welcome!
