@@ -1,58 +1,36 @@
-# Stop
+# Random Letter Generator - Stop 
 
-### Media
+### Video
 
 * Video link: https://www.youtube.com/watch?v=u_Aa6tIJZ0s&ab_channel=EmanuelCosta
+<br> 
 
 <div>
-  <img align="center" src="https://user-images.githubusercontent.com/61395660/228386281-6eeebcfe-f057-43de-bcee-1f62bf662158.png" alt="Media screenshot1" width="49%" height="auto"/>
-  <img align="center" src="https://user-images.githubusercontent.com/61395660/228386301-fb7be8d9-e50f-4041-b274-c91ddb3f3034.png" alt="Media screenshot2"  width="49%" height="auto"/>
+  <img align="center" src="https://user-images.githubusercontent.com/61395660/236074284-89f6fb95-c3b5-4684-ba2c-6e42335c3070.png" alt="Media screenshot2"  width="49%" height="auto"/>
+  <img align="center" src="https://user-images.githubusercontent.com/61395660/236074271-964655b8-ed29-41d8-a0e8-35cfce0acfa9.png" alt="Media screenshot1" width="49%" height="auto"/>
 </div>
 <br>
 
-* Onboarding 
+### Prints 
 
 <br>
 <div>
-  <img src="https://user-images.githubusercontent.com/61395660/228376037-f6249e97-4840-40e7-a3a8-ede1d4be763b.jpg" alt="Bording screenshot1" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376044-838137c9-bda5-4d4d-b987-a2f6aa97a15d.jpg" alt="Bording screenshot2" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376042-b87a4d82-2541-494c-9302-6a09a6c2476d.jpg" alt="Bording screenshot3" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072027-137d5814-59fc-498b-90b7-69e2ab3bab60.jpeg" alt="home" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072035-7b9f19dd-61d5-4698-93d7-39ddca6df93a.jpeg" alt="settings" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072025-2b0118ab-f99d-4bfd-84d5-ea4af49874d1.jpeg" alt="categories" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072026-9a9fc64d-6633-473b-b205-6b38e2035970.jpeg" alt="drawer" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072033-dff91334-e08d-461e-ac33-788fe71e5d30.jpeg" alt="playing" width="32%" height="auto"/>
 </div>
 <br>
 
-* Authentication 
+* Prints (Portuguese version) 
 
 <br>
 <div>
-  <img src="https://user-images.githubusercontent.com/61395660/228376053-8b92249d-ee28-432f-8005-88bb76a6e3ba.jpg" alt="Auth screenshot1" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376035-5ba8d60e-1c28-4c31-84c5-28c00f5f4b76.jpg" alt="Auth screenshot2" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376051-931da5e4-a29e-467c-94db-bff696dc89aa.jpg" alt="Auth screenshot3" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376026-535bfbcc-5f29-4993-bcad-5f4a37c78dd8.jpg" alt="Auth screenshot4" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376024-08e11e63-b018-4c38-be39-4a60dfe2ff7a.jpg" alt="Auth screenshot5" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228388825-f47b17a7-65e1-46b1-b746-4799a70d0ad8.jpg" alt="Auth screenshot6" width="32%" height="auto"/>
-
-</div>
-<br>
-
-* Main  
-
-<br>
-<div>
-  <img src="https://user-images.githubusercontent.com/61395660/228388278-bbb04a4d-a65d-4637-89c8-bea809297fd9.jpg" alt="Main screenshot1" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376019-e01a631d-2cb5-4768-84fc-3c85b0070dfd.jpg" alt="Main screenshot2" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376028-2e4f3ad3-7e1d-455d-912b-a5747466b8f5.jpg" alt="Main screenshot3" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376050-58799407-b6a8-4325-90c2-62d2ff9fc478.jpg" alt="Main screenshot4" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376033-3974f1fc-3ff5-4fa6-944a-935683d6db54.jpg" alt="Main screenshot5" width="32%" height="auto"/>
-
-</div>
-<br>
-
-* Profile  
-
-<br>
-<div>
-  <img src="https://user-images.githubusercontent.com/61395660/228376048-5fce773d-bca3-4d0a-8ecc-9587f408241b.jpg" alt="Profile screenshot1" width="32%" height="auto"/>
-  <img src="https://user-images.githubusercontent.com/61395660/228376022-221af26f-b6ce-4e7c-8e0b-b52b145a08c9.jpg" alt="Profile screenshot2" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072029-07ef7c1e-8b1f-4ab2-9c55-3398f08b333d.jpeg" alt="inicio" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072020-efb8c96d-8798-4be1-bfcd-3ff5dcabe3a2.jpeg" alt="ajustes" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072023-f6275d8c-1e09-44f5-872d-38a08f1644d8.jpeg" alt="categorias" width="32%" height="auto"/>
+  <img src="https://user-images.githubusercontent.com/61395660/236072031-64e584fd-6cf7-4dd3-a2ee-184c9c05e33a.jpeg" alt="navegador" width="32%" height="auto"/>
 </div>
 <br>
 
