@@ -48,18 +48,18 @@ My family have moved to a new place and we had nothing else to do but play 'Stop
 email: emanuelldsc@gmail.com
 
 ## Packages  
-   cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.3
-  font_awesome_flutter: ^10.4.0
-  circular_countdown_timer: ^0.2.2
-  hidden_drawer_menu: ^3.0.1
-  flutter_ringtone_player: ^3.2.0
-  numberpicker: ^2.1.2
-  flutter_animate: ^4.1.1+1
-  get_storage: ^2.1.1
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
+   cupertino_icons: ^1.0.2 <br>
+  google_fonts: ^4.0.3 <br>
+  font_awesome_flutter: ^10.4.0 <br>
+  circular_countdown_timer: ^0.2.2 <br>
+  hidden_drawer_menu: ^3.0.1 <br>
+  flutter_ringtone_player: ^3.2.0 <br>
+  numberpicker: ^2.1.2 <br>
+  flutter_animate: ^4.1.1+1 <br>
+  get_storage: ^2.1.1 <br>
+  flutter_localizations: <br>
+    sdk: flutter <br>
+  intl: ^0.17.0 <br>
 
 ## Installers
 If you want to test the App in the Production mode, the installers are listed below:
