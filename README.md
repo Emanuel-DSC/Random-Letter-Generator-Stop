@@ -64,6 +64,7 @@ email: emanuelldsc@gmail.com
 ## Installers
 If you want to test the App in the Production mode, the installers are listed below:
 
-Android .apk installer : Soon!
+Android .apk installer: [random_letter_generator.zip](https://github.com/Emanuel-DSC/Random-Letter-Generator-Stop/files/11402226/random_letter_generator.zip)
+
 
 iOS .ipa installer: Soon!
