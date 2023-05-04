@@ -2,7 +2,7 @@
 
 ### Video
 
-* Video link: https://www.youtube.com/watch?v=u_Aa6tIJZ0s&ab_channel=EmanuelCosta
+* Video link: https://youtu.be/QoqyGTPhaws
 <br> 
 
 <div>
